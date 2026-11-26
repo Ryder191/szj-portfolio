@@ -12,6 +12,21 @@
   const en = document.documentElement.lang === 'en';
   const t = (zh, english) => en ? english : zh;
 
+  // An already running local preview can still serve the previous header template.
+  // Reuse its actual links so refreshing an earlier preview also preserves the correct tab order.
+  const oldNav = $('.folio-nav.masthead');
+  if (oldNav && ['127.0.0.1','localhost'].includes(location.hostname)) {
+    const brand = $('.brand',oldNav), locale = $('.locale-switch',oldNav);
+    const links = ['resume','about','index','contact'].map(id => $('[data-folio-nav="'+id+'"]',oldNav));
+    if (brand && locale && links.every(Boolean)) {
+      const group = document.createElement('div');
+      group.className = 'desk-links';
+      group.append(...links);
+      oldNav.classList.remove('masthead','desk-links');
+      oldNav.replaceChildren(brand,group,locale);
+    }
+  }
+
   const back = $('[data-project-back]');
   if (back) {
     const library = new URL(back.href);

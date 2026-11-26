@@ -239,16 +239,16 @@
     reduce.addEventListener('change', () => { stopPrint(); if (reduce.matches) fade?.cancel(); });
   }
 
-  // Inline film playback starts on request, preserving native audio and seeking.
+  // Load the film and its controls on demand; preview loops never get a toolbar.
   const films = $$('video[data-film]');
   const filmJumps = $$('a[data-film-start]');
   for (const v of films) {
     const wrap = v.closest('.film'), btn = $('.playbtn', wrap);
     if (!btn) continue;
-    let error;
+    let error, player;
     const report = () => {
       btn.hidden = false;
-      v.controls = false;
+      if (player) player.bar.hidden = true;
       if (!error) {
         error = document.createElement('p');
         error.className = 'film-error';
@@ -260,6 +260,7 @@
     v.addEventListener('error', report);
     v.addEventListener('playing', () => {
       wrap.classList.add('is-started');
+      if (player) player.bar.hidden = false;
       films.filter(other => other !== v).forEach(other => other.pause());
       if (!btn.hidden && wrap.classList.contains('film-showcase') && wrap.getBoundingClientRect().bottom > innerHeight) {
         wrap.scrollIntoView({ block: 'nearest' });
@@ -271,7 +272,8 @@
     async function startFilm(at) {
       if (!v.hasAttribute('src') || v.error) v.src = v.dataset.film;
       if (Number.isFinite(at)) v.currentTime = at;
-      v.controls = true;
+      player ||= window.makeFilmPlayer(v,wrap);
+      player.bar.hidden = false;
       try { await v.play(); } catch (err) { if (err.name !== 'AbortError') report(); }
     }
     btn.addEventListener('click', () => startFilm());
@@ -290,15 +292,23 @@
   const media = $$('[data-lb]'), content = $('.lb-content', dialog);
   const previous = $('.lb-prev', dialog), next = $('.lb-next', dialog);
   const closer = $('.lb-close', dialog), total = $('.lb-count', dialog);
-  let slide = 0, hits = [], caller;
+  let slide = 0, hits = [], caller, galleryPlayer;
+  function stopGallery() {
+    if (!galleryPlayer) return;
+    galleryPlayer.destroy(); galleryPlayer = null;
+    const v = $('video',content);
+    if (v) { v.removeAttribute('src'); v.load(); }
+  }
   function show(n) {
+    stopGallery();
     slide = (n + hits.length) % hits.length;
     const match = hits[slide], item = match.matches('img,video') ? match : $('img', match);
     const movie = item.tagName === 'VIDEO';
     const node = document.createElement(movie ? 'video' : 'img');
     total.textContent = format(slide + 1) + ' / ' + format(hits.length) + '  ·  ' + (movie ? t('片段','Video') : t('图片','Image'));
     if (movie) {
-      node.controls = true; node.playsInline = true;
+      node.playsInline = true;
+      node.setAttribute('aria-label',item.getAttribute('aria-label') || t('项目片段','Project clip'));
       node.src = item.dataset.src || item.currentSrc;
       node.poster = item.poster;
       node.loop = item.dataset.lb !== 'film'; node.muted = node.loop;
@@ -311,10 +321,12 @@
       if (!node.isConnected) return;
       const p = document.createElement('p');
       p.textContent = t('无法加载此媒体。','This media couldn’t be loaded.');
-      node.replaceWith(p);
+      stopGallery();content.replaceChildren(p);
     });
-    content.replaceChildren(node);
-    if (movie) play(node);
+    if (movie) {
+      const shell = document.createElement('div');shell.append(node);content.replaceChildren(shell);
+      galleryPlayer = window.makeFilmPlayer(node,shell);play(node);
+    } else content.replaceChildren(node);
   }
   function open(item) {
     caller = item;
@@ -341,7 +353,7 @@
   previous.addEventListener('click', () => show(slide - 1));
   next.addEventListener('click', () => show(slide + 1));
   dialog.addEventListener('keydown', e => {
-    if (hits.length < 2 || e.target.tagName === 'VIDEO') return;
+    if (hits.length < 2 || e.target.closest('video,.film-tools') || e.defaultPrevented) return;
     if (e.key === 'ArrowLeft' || e.key === 'ArrowRight') {
       e.preventDefault();
       show(slide + (e.key === 'ArrowRight' ? 1 : -1));
@@ -349,13 +361,14 @@
   });
   content.addEventListener('click', e => { if (e.target === content) dialog.close(); });
   dialog.addEventListener('close', () => {
+    stopGallery();
     content.replaceChildren();
     caller?.focus({ preventScroll: true });
     loops.forEach(syncLoop);
   });
   document.addEventListener('visibilitychange', () => {
     loops.forEach(syncLoop);
-    if (document.hidden) films.forEach(v => v.pause());
+    if (document.hidden) { films.forEach(v => v.pause()); $('video',content)?.pause(); }
   });
   reduce.addEventListener('change', () => loops.forEach(syncLoop));
 

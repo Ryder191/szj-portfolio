@@ -24,9 +24,12 @@
 
 <link rel="stylesheet" href="../assets/css/project-opening.css">
 <link rel="stylesheet" href="../assets/css/fluid.css">
+<link rel="stylesheet" href="../assets/css/player.css">
+
 <noscript><style>.playbtn{display:none}</style></noscript>
 <script defer src="../assets/vendor/gsap.min.js"></script>
 <script defer src="../assets/vendor/ScrollTrigger.min.js"></script>
+<script defer src="../assets/js/player.js"></script>
 <script defer src="../assets/js/site.js"></script>
 <script defer src="../assets/js/cursor.js"></script>
 <script defer src="../assets/js/shot-index.js"></script>
@@ -48,9 +51,9 @@
     <div class="project-title"><h1 id="project-title">法拉利pv概念短片</h1><p class="project-deck">个人 AIGC 创作</p></div>
   </header><section class="project-hero project-film screen-shell pu-film" id="screening" aria-labelledby="project-title">
       <figure class="m film lead-film has-cover film-showcase" style="aspect-ratio:2160/920">
-    <video playsinline preload="none" poster="../assets/media/purosangue/poster-lightning.webp" data-film="../assets/media/purosangue/from-now-on.mp4" aria-label="法拉奇pv概念短片"></video>
+    <video controlslist="nodownload noremoteplayback" draggable="false" playsinline preload="none" poster="../assets/media/purosangue/poster-lightning.webp" data-film="../assets/media/purosangue/from-now-on.mp4" aria-label="法拉奇pv概念短片"></video>
     <button class="playbtn" type="button" aria-label="播放：法拉奇pv概念短片"><span class="play-action"><span><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="m6 4 6 4-6 4Z" stroke="currentColor" stroke-width="1.25" stroke-linejoin="round" stroke-linecap="round"/></svg><b>播放</b></span><i aria-hidden="true">02:00</i></span></button>
-    <noscript><a class="film-fallback" href="../assets/media/purosangue/from-now-on.mp4">打开视频 <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M4 12 12 4M4 4h8v8" stroke="currentColor" stroke-width="1.25" stroke-linejoin="round" stroke-linecap="round"/></svg></a></noscript>
+    <noscript><span class="film-fallback">请启用 JavaScript 播放视频。</span></noscript>
   </figure>
     </section><div class="project-body pu-body" id="project-body"><section class="case-section pu-section" id="sequence" aria-labelledby="sequence-title">
     <header class="pu-section-head"><h2 id="sequence-title">镜头索引</h2></header>

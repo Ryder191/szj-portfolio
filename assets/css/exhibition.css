@@ -122,7 +122,7 @@
 :root[lang="en"] .portfolio-directory > h2 { font-family:"Instrument Serif",Georgia,serif }
 .directory-columns {
   display:grid;
-  grid-template-columns:minmax(0,1.13fr) minmax(0,.72fr) minmax(0,1.26fr) minmax(0,.82fr) minmax(0,1.07fr);
+  grid-template-columns:minmax(0,1.15fr) minmax(0,.78fr) minmax(0,1.1fr);
   column-gap:clamp(20px,3.05vw,50px);
   row-gap:clamp(24px,5vw,47px);
   align-items:start;
@@ -220,6 +220,7 @@
   #poster-title span { display:block }
   .poster-credit { margin-top:21px }
   .directory-columns { grid-template-columns:repeat(2,minmax(0,1fr));gap:33px 24px }
+  .directory-column:last-child { grid-column:1 / -1 }
   .screening-image { aspect-ratio:1.88 }
   .study-run { grid-template-columns:repeat(2,minmax(0,1fr)) }
 }

@@ -24,9 +24,12 @@
 <link rel="stylesheet" href="../../assets/css/english.css">
 <link rel="stylesheet" href="../../assets/css/project-opening.css">
 <link rel="stylesheet" href="../../assets/css/fluid.css">
+<link rel="stylesheet" href="../../assets/css/player.css">
+
 <noscript><style>.playbtn{display:none}</style></noscript>
 <script defer src="../../assets/vendor/gsap.min.js"></script>
 <script defer src="../../assets/vendor/ScrollTrigger.min.js"></script>
+<script defer src="../../assets/js/player.js"></script>
 <script defer src="../../assets/js/site.js"></script>
 <script defer src="../../assets/js/cursor.js"></script>
 <script defer src="../../assets/js/shot-index.js"></script>
@@ -48,9 +51,9 @@
     <div class="project-title"><h1 id="project-title">Ferrari Purosangue — Concept Film</h1><p class="project-deck">Independent AIGC film.</p></div>
   </header><section class="project-hero project-film screen-shell pu-film" id="screening" aria-labelledby="project-title">
       <figure class="m film lead-film has-cover film-showcase" style="aspect-ratio:2160/920">
-    <video playsinline preload="none" poster="../../assets/media/purosangue/poster-lightning.webp" data-film="../../assets/media/purosangue/from-now-on.mp4" aria-label="Ferrari Purosangue — Concept Film"></video>
+    <video controlslist="nodownload noremoteplayback" draggable="false" playsinline preload="none" poster="../../assets/media/purosangue/poster-lightning.webp" data-film="../../assets/media/purosangue/from-now-on.mp4" aria-label="Ferrari Purosangue — Concept Film"></video>
     <button class="playbtn" type="button" aria-label="Play: Ferrari Purosangue — Concept Film"><span class="play-action"><span><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="m6 4 6 4-6 4Z" stroke="currentColor" stroke-width="1.25" stroke-linejoin="round" stroke-linecap="round"/></svg><b>Play</b></span><i aria-hidden="true">02:00</i></span></button>
-    <noscript><a class="film-fallback" href="../../assets/media/purosangue/from-now-on.mp4">Open video <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M4 12 12 4M4 4h8v8" stroke="currentColor" stroke-width="1.25" stroke-linejoin="round" stroke-linecap="round"/></svg></a></noscript>
+    <noscript><span class="film-fallback">Enable JavaScript to play the film.</span></noscript>
   </figure>
     </section><div class="project-body pu-body" id="project-body"><section class="case-section pu-section" id="sequence" aria-labelledby="sequence-title">
     <header class="pu-section-head"><h2 id="sequence-title">Shot Index</h2></header>

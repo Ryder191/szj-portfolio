@@ -26,6 +26,7 @@
 <link rel="stylesheet" href="../assets/css/english.css">
 
 <link rel="stylesheet" href="../assets/css/fluid.css">
+<link rel="stylesheet" href="../assets/css/resume.css">
 <noscript><style>.playbtn{display:none}</style></noscript>
 <script defer src="../assets/vendor/gsap.min.js"></script>
 <script defer src="../assets/vendor/ScrollTrigger.min.js"></script>
@@ -34,6 +35,7 @@
 <script defer src="../assets/js/poster-field.js"></script>
 <script defer src="../assets/js/poster-relief.js"></script>
 <script defer src="../assets/js/atlas.js"></script>
+<script defer src="../assets/js/resume.js"></script>
 <script defer src="../assets/js/exhibition.js"></script>
 </head>
 <body id="top" class="home-page">
@@ -74,19 +76,21 @@
     <a class="poster-next" href="#resume" lang="en" aria-label="View résumé">Résumé <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M8 2v11m4-4-4 4-4-4" stroke="currentColor" stroke-width="1.25" stroke-linejoin="round" stroke-linecap="round"/></svg></a>
   </div>
 </section>
-<section class="shell resume-first" id="resume" aria-labelledby="resume-label">
-  <div class="resume-top"><span id="resume-label">Résumé</span><a class="quiet-link" href="../assets/files/resume.pdf" download="Shang-Zijie-Resume-ZH.pdf">PDF · Chinese <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M8 2v11m4-4-4 4-4-4" stroke="currentColor" stroke-width="1.25" stroke-linejoin="round" stroke-linecap="round"/></svg></a></div>
-  <h2 id="resume-name">Shang Zijie</h2>
-  <div class="resume-scene" data-resume-scene><div class="resume-aside"><article class="resume-profile" data-resume-layer>
-    <div class="resume-profile-copy"><p>Film / Animation / Directing</p></div>
-    <p class="resume-education"><strong>SZTU</strong><span>2023–2027 · Art &amp; Technology</span></p>
-    <a class="resume-email" href="mailto:2810418181@qq.com">2810418181@qq.com</a>
-    <a class="resume-work-link quiet-link" href="#work">View work <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M8 2v11m4-4-4 4-4-4" stroke="currentColor" stroke-width="1.25" stroke-linejoin="round" stroke-linecap="round"/></svg></a>
-  </article><div class="resume-metrics" data-resume-layer><div><strong>12.3M+</strong><span>Views on one Douyin video</span></div><div><strong>800+ stars</strong><span>First week of an open-source project on GitHub</span></div><div><strong>246K</strong><span>Views on one Bilibili project</span></div><div><strong>6,000</strong><span>Illustrations in one month for Gongjiao Press using ComfyUI (2023)</span></div></div><div class="resume-details resume-tools"><details class="details" open><summary>Tools & Skills <span aria-hidden="true"></span></summary><ul><li>Unreal Engine 5, Blueprints, layout</li><li>Houdini, Substance 3D Painter and Designer, Blender, ZBrush</li><li>Adobe Creative Cloud, DaVinci Resolve, Jianying, Figma</li><li>TouchDesigner, Arduino, p5.js, Processing</li><li>GPT, Gemini, Stable Diffusion (WebUI, ComfyUI), Midjourney, model training</li><li>AI-assisted coding, agent workflows, prompt design and failure analysis</li></ul><p>Interactive Art, Creative Coding, Exhibition Planning, Mechanical Principles, Concept to Form, Design Thinking, Visual Communication<br>Mandarin · native / English · CET-4</p></details></div></div><article class="resume-sheet" data-resume-layer>
-    <h3>Experience</h3>
-    <div class="timeline"><div class="timeline-row"><time>Jun 2026 – Present</time><div><strong>Photon Studio, Tencent IEG</strong><p>Directing intern</p></div></div><div class="timeline-row"><time>Mar – May 2026</time><div><strong>Shenzhen Media Group</strong><p>Planning &amp; graphic design</p></div></div><div class="timeline-row"><time>Apr – May 2025</time><div><strong>SmallRig International Imaging Culture Week, Shenzhen</strong><p>Visual design &amp; event planning</p></div></div><div class="timeline-row"><time>Mar – Apr 2025</time><div><strong>Shenzhen San’er Digital Content</strong><p>AI film production</p></div></div><div class="timeline-row"><time>Jan 2024</time><div><strong>UCCA Center for Contemporary Art</strong><p>Volunteer art educator</p></div></div></div>
-    <div class="resume-details"><details class="details resume-campus" open><summary>Campus Experience <span aria-hidden="true"></span></summary><ul><li><strong>Art &amp; Technology Society · Founder and President</strong><p>Founded and registered the society, then organized AI workshops and peer talks.</p></li><li><strong>Campus New Media Center</strong><p>Produced short videos and studied trends across video platforms.</p></li><li><strong>University Youth League Office · Department Head</strong><p>Coordinated teams and delivered campus-wide events.</p></li></ul></details></div>
-  </article></div>
+<section class="shell cv-mount" id="resume" aria-labelledby="resume-label" data-view="fit">
+  <div class="cv-tools"><span id="resume-label">Résumé</span><div class="cv-actions">
+    <button type="button" data-cv-toggle aria-controls="cv-paper" data-read="Enlarge" data-fit="Fit page" hidden>Enlarge</button>
+    <a class="cv-download" href="../assets/files/resume.pdf" download="Shang-Zijie-Resume-ZH.pdf">PDF · Chinese <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M8 2v11m4-4-4 4-4-4" stroke="currentColor" stroke-width="1.25" stroke-linejoin="round" stroke-linecap="round"/></svg></a></div></div>
+  <article class="cv-paper" id="cv-paper" aria-labelledby="resume-name" data-resume-scene><div class="cv-leaf"><div class="cv-score">
+    <header class="cv-head"><div><h2 id="resume-name">Shang Zijie</h2><p class="cv-role">Film / Animation / Directing</p></div>
+      <p class="cv-education"><strong>SZTU</strong><span>2023–2027 · Art &amp; Technology</span></p></header>
+    <section class="cv-work"><h3>Experience</h3><ol><li><time>Jun 2026 – Present</time><div><strong>Photon Studio, Tencent IEG</strong><p>Directing intern</p></div></li><li><time>Mar – May 2026</time><div><strong>Shenzhen Media Group</strong><p>Planning &amp; graphic design</p></div></li><li><time>Apr – May 2025</time><div><strong>SmallRig International Imaging Culture Week, Shenzhen</strong><p>Visual design &amp; event planning</p></div></li><li><time>Mar – Apr 2025</time><div><strong>Shenzhen San’er Digital Content</strong><p>AI film production</p></div></li><li><time>Jan 2024</time><div><strong>UCCA Center for Contemporary Art</strong><p>Volunteer art educator</p></div></li></ol></section>
+    <div class="cv-notes"><details open><summary>Tools & Skills</summary>
+      <ul class="cv-skills"><li>Unreal Engine 5, Blueprints, layout</li><li>Houdini, Substance 3D Painter and Designer, Blender, ZBrush</li><li>Adobe Creative Cloud, DaVinci Resolve, Jianying, Figma</li><li>TouchDesigner, Arduino, p5.js, Processing</li><li>GPT, Gemini, Stable Diffusion (WebUI, ComfyUI), Midjourney, model training</li><li>AI-assisted coding, agent workflows, prompt design and failure analysis</li></ul><p class="cv-course">Interactive Art, Creative Coding, Exhibition Planning, Mechanical Principles, Concept to Form, Design Thinking, Visual Communication<br>Mandarin · native / English · CET-4</p></details>
+      <details open><summary>Campus Experience</summary><ul class="cv-campus"><li><strong>Art &amp; Technology Society · Founder and President</strong><p>Founded and registered the society, then organized AI workshops and peer talks.</p></li><li><strong>Campus New Media Center</strong><p>Produced short videos and studied trends across video platforms.</p></li><li><strong>University Youth League Office · Department Head</strong><p>Coordinated teams and delivered campus-wide events.</p></li></ul></details></div>
+    <dl class="cv-figures"><div><dt>Views on one Douyin video</dt><dd>12.3M+</dd></div><div><dt>First week of an open-source project on GitHub</dt><dd>800+ stars</dd></div><div><dt>Views on one Bilibili project</dt><dd>246K</dd></div><div><dt>Illustrations in one month for Gongjiao Press using ComfyUI (2023)</dt><dd>6,000</dd></div></dl>
+    <footer class="cv-foot"><a class="cv-mail" href="mailto:2810418181@qq.com">2810418181@qq.com</a>
+      <a href="#work">View work <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M8 2v11m4-4-4 4-4-4" stroke="currentColor" stroke-width="1.25" stroke-linejoin="round" stroke-linecap="round"/></svg></a></footer>
+  </div></div></article>
 </section>
 <section class="shell home-section portfolio-about" id="about" aria-labelledby="about-title">
 <div class="section-heading folio-heading" data-reveal><h2 id="about-title">About</h2></div>

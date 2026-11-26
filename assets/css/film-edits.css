@@ -1,0 +1,38 @@
+/* Keep portrait and scope cuts inside the opening view, at their native proportions. */
+.project.film-edit {
+  --cut-height:min(76svh,max(110px,calc(100svh - var(--head) - clamp(104px,18svh,210px) - clamp(12px,3svh,32px))));
+}
+.project.film-edit .project-heading {
+  padding-block:clamp(24px,5svh,66px) clamp(16px,3.2svh,42px);
+}
+.project.film-edit .project-title h1 {
+  min-height:0;font-size:clamp(1.65rem,min(var(--project-title-size),5.5vw),4.35rem);line-height:1.15;
+}
+.project.film-edit>.project-hero:first-of-type {
+  width:min(var(--opening-width),calc(var(--cut-height) * var(--cut-ratio)));
+  margin-inline:auto;
+}
+.project.film-edit>.project-hero .lead-film {max-height:none;border:0}
+.project.film-edit>.project-hero .lead-film:not(.is-started) video,.film-edit .lead-film video {object-fit:contain}
+.film-edit .edit-timeline {
+  margin:clamp(40px,6.5vw,98px) auto 0;width:min(100%,var(--opening-width),1500px);
+}
+.edit-timeline img {display:block;width:100%;height:auto;cursor:zoom-in}
+.edit-timeline img + img {margin-block-start:clamp(16px,2.4vw,36px)}
+.edit-timeline figcaption {
+  display:flex;align-items:center;gap:.65em;margin-top:.65em;color:var(--muted);
+  font:400 clamp(.8rem,.94vw,1rem)/1.4 var(--type);
+}
+.edit-timeline figcaption svg {width:.85em;height:.85em}
+.film-edit .edit-record:empty {display:none}
+.edit-neighbours {
+  width:var(--opening-width);margin:clamp(38px,6vw,90px) auto 0;
+  display:flex;align-items:baseline;justify-content:space-between;gap:clamp(18px,4vw,60px);
+}
+.edit-neighbours a {
+  display:inline-flex;align-items:center;gap:.65em;max-width:48%;min-height:44px;text-decoration:none;
+  font:400 clamp(.82rem,1.05vw,1.05rem)/1.45 var(--type);color:var(--soft);
+}
+.edit-neighbours a[rel="next"] {margin-inline-start:auto;text-align:end}
+.edit-neighbours a:is(:hover,:focus-visible) {color:var(--paper);text-decoration:underline;text-underline-offset:.22em}
+.edit-neighbours svg {width:1em;height:1em;flex:none}

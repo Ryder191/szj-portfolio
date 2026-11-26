@@ -330,7 +330,7 @@
   }
   function open(item) {
     caller = item;
-    const group = item.closest('.case-section, .project-hero, .honor-grid, .about-grid');
+    const group = item.closest('.case-section, .project-hero, .honor-grid, .about-grid, .edit-timeline');
     hits = group ? $$('[data-lb]', group).filter(n => n.getClientRects().length > 0) : [item];
     previous.disabled = next.disabled = hits.length < 2;
     dialog.showModal();

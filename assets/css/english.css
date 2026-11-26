@@ -4,12 +4,6 @@
   font-weight:100 900;
   font-display:swap;
 }
-@font-face {
-  font-family:"Source Serif Portfolio";
-  src:url(../fonts/source-serif-portfolio.woff2) format("woff2");
-  font-weight:200 900;
-  font-display:swap;
-}
 :root[lang="en"] {
   --type:"ABC Diatype","Diatype","Inter Portfolio",Arial,sans-serif;
   --sans:"ABC Marist","Marist","Source Serif Portfolio",Georgia,serif;

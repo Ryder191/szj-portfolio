@@ -107,7 +107,7 @@
   document.addEventListener('keydown', e => { if (e.key === 'Escape') stop(); });
   new MutationObserver(() => { if (lightbox.open) stop(); }).observe(lightbox, {attributes:true, attributeFilter:['open']});
 
-  // The personal information, experience and metrics drift at different depths.
+  // The three cards share a stationary hit area and move at different depths.
   const resume = document.querySelector('[data-resume-scene]');
   const desktop = matchMedia('(min-width: 761px)');
   let x = 0, y = 0, frame = 0, near = false;

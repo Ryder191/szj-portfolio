@@ -5,6 +5,11 @@
   font-weight:400;
   font-display:swap;
 }
+@font-face {
+  font-family:"Source Serif Portfolio";
+  src:url(../fonts/source-serif-portfolio.woff2) format("woff2");
+  font-weight:200 900;font-style:normal;font-display:swap;
+}
 :root { --head:clamp(66px,5.65vw,84px);--contact-size:clamp(.95rem,1.08vw,1.075rem) }
 body { isolation:isolate }
 
@@ -24,13 +29,12 @@ body { isolation:isolate }
 }
 .desk-nav {
   display:grid;
-  grid-template-columns:minmax(0,1fr) auto minmax(0,1fr);
+  grid-template-columns:minmax(0,1fr) max-content minmax(0,1fr);
   align-items:center;
   gap:12px;
   height:100%;
 }
-.desk-links { --nav-cn:#d3d3ce;--nav-en:#aaa9a6;display:flex;align-items:center;height:100%;gap:clamp(26px,4.35vw,78px) }
-:root[lang="en"] .desk-links { --nav-cn:#aaa9a6;--nav-en:#d3d3ce }
+.desk-links { justify-self:center;display:flex;align-items:center;height:100%;gap:clamp(30px,6.3vw,8rem) }
 .desk-nav .folio-link {
   position:relative;
   display:flex;
@@ -44,13 +48,9 @@ body { isolation:isolate }
 }
 .desk-nav .folio-link:is(:hover,:focus-visible,[aria-current]) { color:var(--paper) }
 .desk-nav .folio-link:focus-visible { outline-offset:-3px }
-.desk-links .nav-zh { color:var(--nav-cn);font:425 clamp(1.02rem,1.27vw,1.28rem)/1.12 "Contact Song","Noto Serif SC",SimSun,serif;letter-spacing:.095em }
-.desk-links .nav-en { color:var(--nav-en);font:400 clamp(1.10rem,1.47vw,1.46rem)/1 "Instrument Serif",Georgia,serif;letter-spacing:.015em }
-.desk-links .folio-link:is(:hover,:focus-visible,[aria-current]) :is(.nav-zh,.nav-en) { color:#fafafa }
-.desk-nav .brand { width:max-content;font:400 clamp(1.09rem,1.39vw,1.4rem)/1 var(--mono);gap:9px;letter-spacing:-.035em;color:var(--paper) }
-.desk-nav .brand img { flex:none;width:clamp(24px,2.1vw,32px);height:auto }
-.desk-nav .brand-period { color:inherit }
-.desk-links .folio-link>svg { width:12px;height:12px }
+.desk-links .nav-en { font:500 clamp(1rem,calc(1.48vw * var(--layout-type,1)),1.58rem)/1.15 "Source Serif Portfolio",Georgia,serif;letter-spacing:-.006em;font-synthesis:none;transition:color .18s }
+.desk-links .folio-link:is(:hover,:focus-visible,[aria-current]) { color:#fafafa }
+.desk-nav .brand { width:max-content;font:400 clamp(11px,.95vw,.93rem)/1 "IBM Plex Mono",monospace;letter-spacing:-.052em;color:var(--soft) }
 .locale-switch {
   display:grid;
   grid-template-columns:auto 1px auto;
@@ -183,10 +183,8 @@ body { isolation:isolate }
 }
 @media(max-width:760px) {
   :root { --head:67px }
-  .desk-links { gap:clamp(14px,3.75vw,28px) }
-  .desk-links .folio-link { flex-direction:column;justify-content:center;gap:3px;min-width:37px }
-  .desk-links .nav-zh { font-size:1rem;line-height:1.1;letter-spacing:.075em }
-  .desk-links .nav-en { font-size:1rem;line-height:.95;letter-spacing:.01em }
+  .desk-links { gap:clamp(14px,4.6vw,32px) }
+  .desk-links .nav-en { font-size:clamp(15px,2.9vw,20px) }
   .colophon-line { grid-template-columns:minmax(90px,.45fr) minmax(0,1.55fr) }
   .contact-details { justify-content:flex-start }
   .atlas-opening { grid-template-columns:minmax(0,1fr);gap:24px;padding-block:25px 38px }
@@ -202,19 +200,21 @@ body { isolation:isolate }
 }
 @media(max-width:570px) {
   .desk-nav { grid-template-columns:auto minmax(0,1fr) auto;gap:6px }
-  .desk-links { justify-self:center;gap:clamp(8px,2.7vw,16px) }
-  .locale-switch { font-size:.83rem }
-  .locale-switch :is(a,span) { min-width:27px }
+  .desk-links { gap:clamp(7px,calc(7vw - 16px),20px) }
+  .desk-links .nav-en { font-size:clamp(13.5px,4vw,17px) }
+  .locale-switch { font-size:clamp(11px,2.9vw,13px) }
+  .locale-switch :is(a,span) { min-width:clamp(21px,5.6vw,27px) }
   .locale-switch [aria-current]::after { inset-inline:7px }
 }
 @media(max-width:430px) {
-  .desk-nav .brand-word,.desk-links .folio-link>svg { display:none }
   .colophon-line { grid-template-columns:1fr;gap:12px }
   .contact-details { column-gap:clamp(17px,5vw,30px);row-gap:0 }
   .contact-details a { min-height:36px }
   .site-footer .footnote { row-gap:8px;padding-top:32px }
 }
 @media(max-width:351px) {
+  .desk-links {gap:5px}
+  .desk-links .nav-en {font-size:13px}
   .atlas-filters a { font-size:.76rem }
 }
 

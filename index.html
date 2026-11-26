@@ -21,13 +21,13 @@
 <link rel="stylesheet" href="assets/css/folio.css">
 <link rel="stylesheet" href="assets/css/atlas.css">
 <link rel="stylesheet" href="assets/css/exhibition.css">
-<link rel="stylesheet" href="assets/css/contact-print.css">
+<link rel="stylesheet" href="assets/css/contact-print.css?v=66962f66d39e">
 <link rel="stylesheet" href="assets/css/appearance.css">
 
 
-<link rel="stylesheet" href="assets/css/fluid.css">
+<link rel="stylesheet" href="assets/css/fluid.css?v=ab57fb661c44">
 <link rel="stylesheet" href="assets/css/player.css">
-<link rel="stylesheet" href="assets/css/resume.css">
+<link rel="stylesheet" href="assets/css/resume.css?v=04abd524dcf5">
 <noscript><style>.playbtn{display:none}</style></noscript>
 <script defer src="assets/vendor/gsap.min.js"></script>
 <script defer src="assets/vendor/ScrollTrigger.min.js"></script>
@@ -36,22 +36,22 @@
 <script defer src="assets/js/cursor.js"></script>
 <script defer src="assets/js/poster-field.js"></script>
 <script defer src="assets/js/poster-relief.js"></script>
-<script defer src="assets/js/atlas.js"></script>
-<script defer src="assets/js/resume.js"></script>
+<script defer src="assets/js/atlas.js?v=eb8308ddb6e5"></script>
+<script defer src="assets/js/resume.js?v=04a513337d17"></script>
 <script defer src="assets/js/exhibition.js"></script>
 </head>
 <body id="top" class="home-page">
 <div class="print-stock" aria-hidden="true"></div>
 <a class="skip" href="#main">跳到正文</a>
 <header class="site-header folio-header"><nav class="shell desk-nav folio-nav" aria-label="主导航">
-  <a class="brand folio-link" href="#top" aria-label="尚子杰 · 作品集首页"><img src="assets/favicon.svg" alt="" width="23" height="23"><span class="brand-word">SZJ<span class="brand-period">.</span></span></a>
+  <a class="brand folio-link" href="#top" aria-label="Jazz·shang · 作品集首页"><span class="brand-word" lang="en">Jazz·shang</span></a>
   <div class="desk-links">
-    <a class="folio-link" href="#resume" aria-label="简历" data-folio-nav="resume"><span class="nav-zh" lang="zh-CN">简历</span><span class="nav-en" lang="en">Résumé</span></a>
-<a class="folio-link" href="#about" aria-label="关于" data-folio-nav="about"><span class="nav-zh" lang="zh-CN">关于</span><span class="nav-en" lang="en">About</span></a>
-<a class="folio-link" href="#index" aria-label="作品" data-folio-nav="index"><span class="nav-zh" lang="zh-CN">作品</span><span class="nav-en" lang="en">Work</span></a>
-<a class="folio-link" href="#contact" aria-label="联系" data-folio-nav="contact"><span class="nav-zh" lang="zh-CN">联系</span><span class="nav-en" lang="en">Contact</span></a>
+    <a class="folio-link" href="#resume" aria-label="Résumé · 简历" data-folio-nav="resume"><span class="nav-en" lang="en">Résumé</span></a>
+<a class="folio-link" href="#about" aria-label="About · 关于" data-folio-nav="about"><span class="nav-en" lang="en">About</span></a>
+<a class="folio-link" href="#index" aria-label="Work · 作品" data-folio-nav="index"><span class="nav-en" lang="en">Work</span></a>
+<a class="folio-link" href="#contact" aria-label="Contact · 联系" data-folio-nav="contact"><span class="nav-en" lang="en">Contact</span></a>
   </div>
-  <div class="locale-switch" role="group" aria-label="网站语言"><span lang="zh-CN" aria-current="true" aria-label="简体中文">中</span><i aria-hidden="true"></i><a href="en/index.html" lang="en" hreflang="en" aria-label="English" data-locale-switch>EN</a></div>
+  <div class="locale-switch" role="group" aria-label="网站语言"><span lang="zh-CN" aria-current="true" aria-label="ZH · 简体中文">ZH</span><i aria-hidden="true"></i><a href="en/index.html" lang="en" hreflang="en" aria-label="EN · English" data-locale-switch>EN</a></div>
 </nav></header>
 <main id="main"><section class="cover-poster" id="poster" aria-labelledby="poster-title">
   <div class="poster-stock" aria-hidden="true"></div>
@@ -82,17 +82,21 @@
   <div class="cv-tools"><span id="resume-label">简历</span><div class="cv-actions">
     <button type="button" data-cv-toggle aria-controls="cv-paper" data-read="放大阅读" data-fit="查看整页" hidden>放大阅读</button>
     <a class="cv-download" href="assets/files/resume.pdf" download="尚子杰的简历2026.pdf">简历 PDF <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M8 2v11m4-4-4 4-4-4" stroke="currentColor" stroke-width="1.25" stroke-linejoin="round" stroke-linecap="round"/></svg></a></div></div>
-  <article class="cv-paper" id="cv-paper" aria-labelledby="resume-name" data-resume-scene><div class="cv-leaf"><div class="cv-score">
-    <header class="cv-head"><div><h2 id="resume-name">尚子杰</h2><p class="cv-role">影视 / 动画 / 导演</p></div>
-      <p class="cv-education"><strong>SZTU</strong><span>2023 – 2027 / 艺术与科技</span></p></header>
+  <article class="cv-paper" id="cv-paper" aria-labelledby="resume-name" data-resume-scene><div class="cv-score">
+    <header class="cv-card cv-profile" data-resume-layer>
+      <div class="cv-head"><h2 id="resume-name">尚子杰</h2><p class="cv-role">影视 / 动画 / 导演</p></div>
+      <p class="cv-education"><strong>SZTU</strong><span>2023 – 2027 / 艺术与科技</span></p>
+      <div class="cv-foot"><a class="cv-mail" href="mailto:2810418181@qq.com">2810418181@qq.com</a>
+        <a href="#work">浏览作品 <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M8 2v11m4-4-4 4-4-4" stroke="currentColor" stroke-width="1.25" stroke-linejoin="round" stroke-linecap="round"/></svg></a></div>
+    </header>
+    <div class="cv-card cv-record" data-resume-layer>
     <section class="cv-work"><h3>工作经历</h3><ol><li><time>2026.06.08 – 至今</time><div><strong>腾讯 IEG 光子工作室</strong><p>导演实习生</p></div></li><li><time>2026.03.01 – 05.25</time><div><strong>深圳广播电影电视集团</strong><p>方案策划及平面</p></div></li><li><time>2025.04.01 – 05.25</time><div><strong>SmallRig 国际影像文化周（中国·深圳）</strong><p>承办方 · 视觉设计及策划</p></div></li><li><time>2025.03.01 – 04.30</time><div><strong>深圳三二数字内容有限公司</strong><p>AIGC 影视制作</p></div></li><li><time>2024.01.07 – 01.14</time><div><strong>UCCA 尤伦斯当代艺术中心</strong><p>艺术支教</p></div></li></ol></section>
     <div class="cv-notes"><details open><summary>工具与技能</summary>
-      <ul class="cv-skills"><li>Unreal Engine 5 | 蓝图 | layout</li><li>Houdini | Substance 3D Painter | Substance 3D Designer | Blender | ZBrush</li><li>Adobe 全家桶 | 达芬奇 | 剪映 | Figma</li><li>TouchDesigner | Arduino | p5.js | Processing 等交互及编程艺术软件</li><li>AIGC：GPT | Gemini | SD（WebUI、ComfyUI）| Midjourney | 训练模型</li><li>Cursor、Antigravity 等 AI Coding 工具 | Agent 与 workflow 搭建 | 提示词工程与 badcase 分析</li></ul><p class="cv-course">动态交互艺术、创意编程、展示策划、机械原理、概念到形式、设计思维、视觉传达<br>英语 · 四级 / 普通话 · 母语</p></details>
+      <ul class="cv-skills"><li>Unreal Engine 5、蓝图、layout</li><li>Houdini、Substance 3D Painter、Substance 3D Designer、Blender、ZBrush</li><li>Adobe 全家桶、达芬奇、剪映、Figma</li><li>TouchDesigner、Arduino、p5.js、Processing 等交互及编程艺术软件</li><li>AIGC：GPT、Gemini、SD（WebUI、ComfyUI）、Midjourney、训练模型</li><li>Cursor、Antigravity 等 AI Coding 工具、Agent 与 workflow 搭建、提示词工程与 badcase 分析</li></ul><p class="cv-course">动态交互艺术、创意编程、展示策划、机械原理、概念到形式、设计思维、视觉传达<br>英语 · 四级 / 普通话 · 母语</p></details>
       <details open><summary>在校经历</summary><ul class="cv-campus"><li><strong>艺术与科技社 · 创始人兼社长</strong><p>从 0 到 1 跑通流程拿下校级认证，经常在社团里组织大家一起玩 AI、做分享。</p></li><li><strong>校园新媒体运营中心</strong><p>做校园新媒体运营，也自己下场做短视频创作者，喜欢拆解各大视频平台的内容趋势。</p></li><li><strong>校团委办公室 · 部长</strong><p>统筹落地校级大型活动，养成目标导向思维，协调不同团队完成任务。</p></li></ul></details></div>
-    <dl class="cv-figures"><div><dt>抖音单条视频播放量，登上当时热榜</dt><dd>1234.8 万+</dd></div><div><dt>首次开源视觉项目，GitHub 首周</dt><dd>800+ stars</dd></div><div><dt>B 站单作品播放量</dt><dd>24.6 万</dd></div><div><dt>2023为公教出版社搭建ComfyUI 工作流 实现单月6000张插画</dt><dd>6000 张</dd></div></dl>
-    <footer class="cv-foot"><a class="cv-mail" href="mailto:2810418181@qq.com">2810418181@qq.com</a>
-      <a href="#work">浏览作品 <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M8 2v11m4-4-4 4-4-4" stroke="currentColor" stroke-width="1.25" stroke-linejoin="round" stroke-linecap="round"/></svg></a></footer>
-  </div></div></article>
+    </div>
+    <dl class="cv-card cv-figures" data-resume-layer aria-label="项目数据"><div><dt>抖音单条视频播放量，登上当时热榜</dt><dd>1234.8 万+</dd></div><div><dt>首次开源视觉项目，GitHub 首周</dt><dd>800+ stars</dd></div><div><dt>B 站单作品播放量</dt><dd>24.6 万</dd></div><div><dt>2023为公教出版社搭建ComfyUI 工作流 实现单月6000张插画</dt><dd>6000 张</dd></div></dl>
+  </div></article>
 </section>
 <section class="shell home-section portfolio-about" id="about" aria-labelledby="about-title">
 <div class="section-heading folio-heading" data-reveal><h2 id="about-title">关于我</h2></div>

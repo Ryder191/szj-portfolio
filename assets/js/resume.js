@@ -10,25 +10,28 @@
     pending = false;
     if (mount.dataset.view !== 'fit') return;
     // Set real type at the available measure first. Only unusually long edits need optical scaling.
-    const room = paper.clientHeight;
+    const room = paper.getBoundingClientRect().height;
+    const measure = () => parseFloat(getComputedStyle(score).height);
     const set = n => score.style.setProperty('--cv-density',String(n));
     set(1);
-    if (score.offsetHeight > room + 1) {
+    if (measure() > room + .08) {
       let lo = .82, hi = 1;
       for (let i = 0; i < 5; i++) {
         const mid = (lo + hi) / 2;
         set(mid);
-        if (score.offsetHeight <= room + 1) lo = mid; else hi = mid;
+        if (measure() <= room + .08) lo = mid; else hi = mid;
       }
       set(lo);
     }
-    const ratio = score.offsetHeight <= room + 1 ? 1 : room / Math.max(1,score.offsetHeight);
+    const natural = measure();
+    const ratio = natural <= room + .08 ? 1 : room / Math.max(1,natural);
     score.toggleAttribute('data-overset',ratio < 1);
     score.style.setProperty('--cv-fit', String(ratio));
   }
   function queue() { if (!pending) { pending = true; requestAnimationFrame(fit); } }
   function view(mode, jump = false) {
     mount.dataset.view = mode;
+    mount.setAttribute('data-cv-ready','');
     toggle.textContent = mode === 'fit' ? toggle.dataset.read : toggle.dataset.fit;
     fit();
     if (jump) mount.scrollIntoView({behavior:'instant', block:'start'});

@@ -1,0 +1,132 @@
+.project-back {
+  display:inline-flex;
+  justify-self:start;
+  align-items:center;
+  gap:8px;
+  min-height:44px;
+  min-width:44px;
+  padding:0 10px;
+  margin-inline-start:-10px;
+  color:var(--soft);
+  font:400 .9rem/1 var(--type);
+  white-space:nowrap;
+  transition:color .2s;
+}
+.project-back svg {
+  width:20px;
+  height:20px;
+  transition:transform .25s var(--ease);
+}
+.project-back:is(:hover,:focus-visible) { color:var(--paper) }
+.project-back:hover svg { transform:translateX(-3px) }
+.project-back:focus-visible { outline-offset:-2px }
+
+.project { --opening-width:min(100%,83.333vw);padding-top:0 }
+.project-heading {
+  display:block;
+  text-align:center;
+  padding:clamp(54px,10.2vw,188px) 0 clamp(26px,4.25vw,80px);
+  margin-inline:auto;
+  width:var(--opening-width);
+}
+.project-title h1 {
+  display:grid;
+  place-items:center;
+  min-height:clamp(3rem,9.15vw,10.3rem);
+  margin:0;
+  color:var(--paper);
+  font:400 clamp(2rem,var(--project-title-size),9.1rem)/1.1 var(--type);
+  letter-spacing:normal;
+  overflow-wrap:anywhere;
+  text-wrap:balance;
+  text-autospace:ideograph-alpha;
+}
+.project-title h1>span { min-width:0;max-width:100% }
+.project-title .project-deck {
+  max-width:42em;
+  margin:clamp(14px,1.65vw,27px) auto 0;
+  font-size:clamp(.94rem,1.1vw,1.12rem);
+  line-height:1.65;
+  text-wrap:pretty;
+  overflow-wrap:anywhere;
+}
+:root[lang="en"] .project-title h1 { letter-spacing:-.043em }
+:root[lang="en"] .project-title .project-deck { font-family:var(--sans);line-height:1.55 }
+
+.project>.project-hero:first-of-type {
+  width:var(--opening-width);
+  margin-inline:auto;
+  border:0;
+  background:transparent;
+  box-shadow:none;
+  --line:#d5d5d533;
+  --panel:transparent;
+}
+.project>.project-hero:first-of-type .lead-film {
+  max-height:none;
+}
+.project>.project-hero:first-of-type .lead-film:not(.is-started) video {
+  object-fit:cover;
+}
+.project>.project-hero:first-of-type .opening-visual {
+  max-height:none;
+}
+.project>.project-hero:first-of-type .opening-frames {
+  border:0;
+  padding-inline:0;
+  background:transparent;
+}
+.project>.project-hero .playbtn::before {
+  content:"";
+  position:absolute;
+  inset:0;
+  pointer-events:none;
+  background:radial-gradient(ellipse at 100% 0%,#000a,transparent 50%);
+}
+.project>.project-hero .opening-visual::after { background:radial-gradient(ellipse at 100% 0%,#000a,transparent 50%) }
+.project>.project-hero .playbtn .play-action,
+.project>.project-hero .opening-cta {
+  background:transparent;
+  color:#f2f2f2;
+  border:0;
+  padding-inline:1px;
+  box-shadow:none;
+  text-shadow:0 1px 12px #000,0 1px 2px #000;
+  transition:color .23s,transform .25s var(--ease);
+}
+.project>.project-hero .play-action { position:relative }
+.project>.project-hero .playbtn .play-action i { border:0;color:inherit;opacity:.68;padding-left:5px }
+.project>.project-hero :is(.playbtn,.opening-visual):is(:hover,:focus-visible) :is(.play-action,.opening-cta) {
+  background:transparent;color:#fff;transform:translateY(-2px);
+}
+.project>.companion-screen { border:0;background:transparent;box-shadow:none;--panel:transparent }
+.project>.companion-screen :is(.screen-label,.screen-caption) { border:0;padding-inline:0 }
+.project>.companion-screen .screen-label h2 i { display:none }
+.project-screen-info {
+  align-items:baseline;
+  border:0;
+  padding:8px 0;
+  min-height:0;
+  color:var(--soft);
+}
+.screen-shell .project-screen-info { padding-inline:0;gap:6px 14px }
+.project-screen-info>div { display:flex;align-items:baseline;flex-wrap:wrap;gap:2px 13px;min-width:0 }
+.project-screen-info h2 { font:400 clamp(.89rem,1.1vw,1.02rem)/1.4 var(--type);overflow-wrap:anywhere }
+.project-screen-info .quiet-link { min-height:32px }
+
+@media(max-width:820px) {
+  .project { --opening-width:100% }
+}
+@media(max-width:570px) {
+  .project-back { margin-inline-start:-8px;padding-inline:8px }
+  .project-back span { display:none }
+  .project-heading { padding-block:clamp(54px,10vh,90px) 28px }
+  .project-title h1 { font-size:clamp(1.9rem,7.95vw,2.9rem);line-height:1.13 }
+  .project-title .project-deck { max-width:28em }
+  .project-screen-info>div { display:block }
+  .project-screen-info .screen-type { display:block;white-space:normal }
+}
+@media(prefers-reduced-motion:reduce) {
+  .project-back svg { transition:none }
+  .project-back:hover svg { transform:none }
+}

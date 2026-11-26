@@ -1,0 +1,77 @@
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
+
+/* One primary way into each project: its film, source, or visual record. */
+.project-heading{display:block;padding:clamp(22px,3.25vw,49px) 0 clamp(17px,2.45vw,36px)}
+.project-deck{max-width:76ch}
+.screen-shell{--screen-accent:color-mix(in srgb,var(--chapter),#ffecd2 27%)}
+.screen-shell.release-hero{--screen-accent:#ffd49b}
+.screen-shell .screen-label,.screen-shell .screen-caption{padding-inline:clamp(10px,1.45vw,20px)}
+.screen-shell .screen-label{min-height:clamp(40px,3.6vw,52px)}
+.screen-shell .screen-label h2{min-width:0;font-size:clamp(.83rem,1.24vw,1.07rem)}
+.screen-shell .screen-label h2 i{background:var(--screen-accent);box-shadow:none;border-radius:0}
+.screen-type b{font-weight:400;color:var(--screen-accent);padding-inline:6px}
+.screen-shell.project-film .m{width:100%;max-height:min(64vh,680px);border:0}
+.screen-shell .playbtn{
+  inset:0;align-items:start;justify-content:end;padding:clamp(11px,1.7vw,24px);
+  background:transparent;border:0;color:#181711;
+  font-size:clamp(.73rem,1.05vw,.86rem);backdrop-filter:none;
+}
+.screen-shell .playbtn:hover{background:transparent}
+.screen-shell .playbtn:focus-visible,.opening-visual:focus-visible{outline-offset:-4px}
+.screen-shell .playbtn .play-action{
+  min-height:44px;padding:0 12px;gap:10px;
+  background:#f4efe2;box-shadow:0 2px 19px #100e0b38;transition:background .23s,transform .23s var(--ease);
+}
+.screen-shell .playbtn:hover .play-action{background:var(--screen-accent);transform:translateY(-2px)}
+.screen-shell .playbtn:active .play-action{transform:none}
+.screen-shell .play-action span{gap:6px}
+.screen-shell .playbtn span svg,.opening-cta svg:first-child{width:15px;height:15px}
+.companion-screen{width:min(100%,1040px);margin:clamp(30px,4.6vw,69px) auto 0}
+.opening-visual{
+  position:relative;display:block;width:100%;aspect-ratio:2.38;max-height:620px;min-height:155px;
+  isolation:isolate;overflow:hidden;border:0;padding:0;background:#1e1e18;
+}
+.opening-visual img{width:100%;height:100%;object-fit:cover;object-position:var(--art-position,center);transition:transform .65s var(--ease)}
+.opening-visual::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,#13120c7f,transparent 40%);pointer-events:none}
+.opening-visual:hover img{transform:scale(1.025)}
+.opening-cta{
+  position:absolute;z-index:1;top:clamp(11px,1.7vw,24px);right:clamp(11px,1.7vw,24px);
+  display:flex;align-items:center;gap:7px;min-height:44px;padding:0 12px;background:#f4efe2;color:#181711;
+  font:400 .8rem/1.35 var(--type);white-space:nowrap;transition:background .24s;
+}
+.opening-visual:hover .opening-cta{background:var(--screen-accent)}
+.opening-cta svg{width:13px;height:13px}
+.opening-frames{display:flex;gap:6px;padding:6px;background:#141512;border-top:1px solid var(--line)}
+.opening-thumb{
+  position:relative;width:min(28%,142px);aspect-ratio:1.78;
+  padding:0;border:1px solid var(--line);display:block;overflow:hidden;background:var(--panel);
+}
+.opening-thumb:hover{border-color:var(--screen-accent)}
+.opening-thumb:focus-visible{outline-offset:-2px}
+.opening-thumb img{width:100%;height:100%;object-fit:cover;object-position:var(--art-position,center)}
+.opening-thumb span,.dossier-cover figcaption{position:absolute;bottom:4px;left:4px;background:#151410e0;color:var(--paper);font:.6rem/1.15 var(--mono);padding:4px 6px;pointer-events:none}
+.project-dossier{
+  display:flex;align-items:center;gap:clamp(10px,2vw,28px);
+  margin-top:clamp(20px,3.4vw,47px);padding:10px 0;border-block:1px solid var(--line);
+}
+.dossier-cover{width:clamp(112px,15.2vw,206px);aspect-ratio:1.72;flex:none;overflow:hidden}
+.dossier-cover img{object-fit:cover;object-position:var(--art-position,center);transition:transform .45s var(--ease)}
+.dossier-cover:hover img{transform:scale(1.04)}
+.dossier-cover figcaption{display:flex;align-items:center;gap:3px}
+.dossier-cover figcaption svg{width:12px;height:12px}
+.dossier-info{display:flex;flex-direction:column;gap:6px}
+.dossier-label{font:.68rem/1.4 var(--mono);color:color-mix(in srgb,var(--chapter),#f1eee1 26%);letter-spacing:.045em}
+.dossier-info ul{display:flex;gap:4px;flex-wrap:wrap;padding:0;list-style:none}
+.dossier-info li{font-size:.72rem;line-height:1.3;color:var(--muted);border:1px solid var(--line);padding:4px 6px}
+.project-dossier+.project-jumps{margin-top:13px}
+
+@media(min-width:1001px) and (max-height:810px){
+  .project-heading{padding-top:28px}
+  .screen-shell.project-film .m{max-height:60vh}
+}
+@media(max-width:670px){
+  .project-crumbs{font-size:.7rem}
+  .opening-visual{aspect-ratio:1.72}
+  .screen-shell .screen-label,.screen-shell .screen-caption{gap:6px}
+  .screen-type b{padding-inline:4px}
+}

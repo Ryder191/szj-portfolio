@@ -1,0 +1,87 @@
+.folio-surface {
+  color-scheme:dark;
+  --ink:rgb(var(--stock-level) var(--stock-level) var(--stock-level));
+  --paper:#e6e6e6;
+  --soft:#c4c4c4;
+  --muted:#a9a9a9;
+  --signal:#dedede;
+  --line:#ababab4a;
+  --panel:color-mix(in srgb,var(--ink) 93%,white);
+  --chrome:color-mix(in srgb,var(--ink) 97%,white);
+  --stock-base:color-mix(in srgb,var(--ink) 70%,#1d2a36);
+  --well:color-mix(in srgb,var(--ink) 77%,black);
+  --mount-shadow:#0008;
+  --grain:url(../grain.png);
+  --fibre:url(../fibre-stock.webp);
+  --stock-scale:clamp(380px,max(42.67vw,75.91vh),1900px);
+  --stock-opacity:clamp(0%,calc(var(--grain-amount,72%) * 1.389),100%);
+  --resume-paper:color-mix(in srgb,var(--ink) 90%,white);
+  --resume-metrics:color-mix(in srgb,var(--ink) 94%,white);
+}
+.print-stock {
+  position:fixed;
+  z-index:-1;
+  inset:0;
+  overflow:hidden;
+  pointer-events:none;
+  user-select:none;
+  background:
+    radial-gradient(ellipse at 54% 26%,#74828e10,transparent 74%),
+    radial-gradient(ellipse at 100% 88%,#01040738,transparent 78%),
+    var(--stock-base);
+}
+.print-stock::after,
+.folio-surface :where(.site-footer,.resume-profile,.resume-sheet,.resume-metrics)::before {
+  content:"";
+  position:absolute;
+  inset:0;
+  pointer-events:none;
+  background:var(--grain) 19px 37px / 256px repeat;
+  opacity:calc(var(--grain-amount,0%) * .35);
+}
+.print-stock::after {
+  background:var(--fibre) center top / var(--stock-scale) repeat;
+  filter:brightness(calc(var(--stock-level) / 22)) contrast(var(--grain-contrast,1));
+  opacity:var(--stock-opacity);
+}
+.print-stock::before {
+  content:"";
+  position:absolute;
+  z-index:1;
+  inset:0;
+  background:url(../media/press/black-seal.webp) center / min(64vw,99vh,970px) auto no-repeat;
+  filter:brightness(.65);
+  opacity:.90;
+}
+@media(max-aspect-ratio:4/5) {
+  .print-stock::before { background-size:min(96vw,72vh) auto }
+}
+.desk-look .print-stock::before { background-size:auto 88% }
+.folio-surface :where(.site-footer,.resume-profile,.resume-sheet,.resume-metrics)::before { z-index:-1 }
+.folio-surface :where(.atlas-image > img,.atlas-image > video,.feature-insert img,.atlas-picks img,.next-image img),
+.cover-look { filter:var(--cover-filter,none) }
+
+.work-pointer {
+  position:fixed;
+  z-index:60;
+  inset:0 auto auto 0;
+  width:28px;
+  height:28px;
+  color:#f4f4f1;
+  pointer-events:none;
+  filter:drop-shadow(0 1px 1px #000) drop-shadow(0 0 1px #000);
+}
+.work-pointer[hidden] { display:none }
+.work-pointer svg { width:100%;height:100%;display:block }
+.work-pointer svg path { transform-origin:center;transition:transform .19s var(--ease) }
+.work-pointer[data-cue="open"] svg path { transform:scale(.84) }
+.work-pointer[data-cue="play"] svg path { transform:scale(.73) }
+@media(hover:hover) and (pointer:fine) {
+  .has-work-pointer,.has-work-pointer * { cursor:none !important }
+}
+@media (hover:none),(pointer:coarse) {
+  .work-pointer { display:none }
+}
+@media(prefers-reduced-motion:reduce) {
+  .work-pointer svg path { transition:none }
+}

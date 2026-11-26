@@ -1,0 +1,123 @@
+/* Trim follows the viewport; line measures follow the reader. */
+:root.folio-surface {
+  font-size:clamp(100%,calc(68% + .46vw),220%);
+  --edge:clamp(12px,1.8vw,5rem);
+  --max:100%;
+  --mast-inset:clamp(12px,1.2vw,4rem);
+  --head:clamp(62px,5.1vw,7rem);
+  --contact-size:clamp(.94rem,1.12vw,1.22rem);
+  --han:"Portfolio CJK","Noto Sans SC","PingFang SC","Microsoft YaHei",sans-serif;
+}
+:root.home-layout {
+  font-size:calc(clamp(100%,calc(68% + .46vw),220%) * var(--layout-type,1));
+}
+:root.folio-surface[lang="zh-CN"], :root[lang="en"] [lang="zh-CN"] {
+  --type:"IBM Plex Mono",var(--han);
+  --sans:var(--type);
+  --mono:var(--type);
+}
+.folio-surface body { font-size:1rem }
+.desk-nav { width:calc(100% - 2 * var(--mast-inset)) }
+.desk-links .nav-zh { font:400 clamp(.98rem,1.35vw,1.45rem)/1.18 var(--han);letter-spacing:.075em }
+.desk-links .nav-en { font-size:clamp(1.03rem,1.53vw,1.6rem) }
+.desk-nav .brand { font-size:clamp(1rem,1.37vw,1.4rem) }
+.desk-nav .brand img { width:clamp(23px,1.9vw,2rem) }
+.masthead { display:grid;grid-template-columns:1fr auto 1fr;align-items:center;height:100%;gap:1rem }
+.masthead .mast-about { justify-self:start }
+.masthead .mast-index { justify-self:end }
+.mast-center { display:flex;align-items:center;gap:clamp(20px,3.15vw,3rem);height:100% }
+.mast-center .brand { height:auto;min-height:44px }
+.mast-center .locale-switch { font-size:.78rem }
+.mast-center .locale-switch :is(a,span) { min-width:1.8em }
+.mast-center .locale-switch i { height:.8em }
+.masthead .folio-link:is(:hover,:focus-visible) .nav-en { font-style:italic }
+.home-page { --section-space:clamp(58px,6.8vw,8rem) }
+.home-page .shell, :root[lang="en"] .home-page :is(.resume-first,.portfolio-about) {
+  max-width:none;
+  width:calc(100% - var(--edge) * 2);
+}
+.home-page .shell.desk-nav { width:calc(100% - var(--mast-inset) * 2) }
+.home-page .cover-poster { --seal-w:min(58vw,83svh); }
+.home-page .poster-type { font-size:calc(clamp(4rem,min(12.35vw,24svh),34rem) * var(--layout-display)) }
+.home-page .poster-credit { font-size:clamp(.74rem,.9vw,.94rem) }
+.home-page .poster-next { font-size:clamp(.83rem,1.04vw,1.08rem) }
+.home-page .portfolio-directory { margin-block:clamp(50px,5.1vw,7rem) var(--section-space) }
+.home-page :is(.portfolio-directory > h2,.folio-heading h2,.atlas-gallery-head h2) {
+  font-size:calc(clamp(1.85rem,3.35vw,4.5rem) * var(--layout-display)); font-weight:400;letter-spacing:-.035em;
+}
+.home-page .atlas-intro h2 { font-size:calc(clamp(2.05rem,4.25vw,6rem) * var(--layout-display));font-weight:400 }
+.home-page .directory-column h3 { font-size:clamp(1.06rem,1.51vw,1.7rem) }
+.home-page .directory-column ul { font-size:clamp(.92rem,calc(1.14vw * var(--layout-type)),1.23rem);line-height:1.55 }
+.home-page .directory-columns { column-gap:clamp(16px,2.5vw,3rem) }
+.home-page .atlas-bio { max-inline-size:39em;font-size:clamp(1rem,1.53vw,1.55rem);text-wrap:pretty }
+:root[lang="en"] .home-page .atlas-bio { max-inline-size:48ch }
+.home-page .atlas-about .details p { max-inline-size:48em }
+.home-page .atlas-caption, .home-page .atlas-tile .atlas-caption { display:block }
+.home-page .atlas-tile h4 { font-size:clamp(1rem,calc(1.36vw * var(--layout-type)),1.55rem);font-weight:400;line-height:1.38 }
+.home-page .atlas-caption p { font-size:clamp(.84rem,calc(1.06vw * var(--layout-type)),1.13rem);line-height:1.56;max-inline-size:58em }
+:root[lang="en"] .home-page .atlas-caption p { font-size:clamp(.97rem,calc(1.18vw * var(--layout-type)),1.28rem);line-height:1.4 }
+.home-page .atlas-lead .atlas-caption h3 { font-size:clamp(1.3rem,2.2vw,2.55rem) }
+.home-page .atlas-chapter h3 { font-size:clamp(1.05rem,1.55vw,1.6rem);letter-spacing:.075em }
+.home-page .atlas-filters a,.home-page .atlas-browse { font-size:clamp(.86rem,1.08vw,1.1rem) }
+.home-page .atlas-picks span { font-size:clamp(.73rem,.92vw,.95rem) }
+.home-page .atlas-tile .atlas-image { aspect-ratio:calc(1.7778 / var(--layout-cards)) }
+.home-page .screening-frame { width:calc(100% * var(--layout-screen));margin-inline:auto 0 }
+.home-page .screening-frame figcaption, .home-page .study-shot figcaption {font-size:clamp(.91rem,1.18vw,1.27rem)}
+.home-page .portfolio-honors .honor h3 {font-size:clamp(1.02rem,1.38vw,1.5rem)}
+.home-page .portfolio-honors .honor p {font-size:.94rem;max-width:50em}
+.home-page .has-study-loop .study-shot { width:clamp(205px,27vw,55rem) }
+:root[lang="en"] .home-page .resume-first {
+  --resume-pad:clamp(16px,2.5vw,3rem);
+  padding:calc(var(--resume-pad)*.5) var(--resume-pad) var(--resume-pad);
+  font-size:1.13rem;line-height:1.35;
+}
+:root[lang="en"] .home-page #resume-name { font-size:clamp(2.5rem,5.8vw,7rem);letter-spacing:-.045em }
+:root[lang="en"] .home-page .resume-aside { gap:clamp(15px,1.65vw,2rem) }
+:root[lang="en"] .home-page .resume-details li { max-width:60ch }
+@media(min-width:761px) {
+  .masthead .nav-zh { font-size:clamp(.98rem,calc(1.35vw * var(--layout-type)),1.45rem) }
+  .masthead .nav-en { font-size:clamp(1.03rem,calc(1.53vw * var(--layout-type)),1.6rem) }
+  .home-page .atlas-opening { grid-template-columns:minmax(0,1fr) minmax(0,calc(100% * var(--layout-feature)));gap:clamp(20px,3vw,3.5rem) }
+  .home-page .atlas-intro { margin-top:clamp(2rem,6vw,7rem) }
+  .home-page .atlas-grid { grid-template-columns:repeat(auto-fill,minmax(min(100%,calc(24vw * var(--layout-cards))),1fr));column-gap:clamp(12px,1.5vw,2rem) }
+  .home-page .atlas-chapter { grid-template-columns:minmax(6.5rem,11fr) minmax(0,85fr);column-gap:2vw }
+  .home-page .resume-profile,.home-page .resume-sheet,.home-page .resume-metrics { padding:clamp(20px,2.05vw,3rem) }
+  .home-page .resume-profile-copy h2 { font-size:clamp(2.25rem,3.8vw,4.4rem) }
+  :root[lang="en"] .home-page .resume-scene { grid-template-columns:minmax(0,.83fr) minmax(0,1.55fr);gap:clamp(28px,5.5vw,6rem) }
+  :root[lang="en"] .home-page :is(.resume-profile,.resume-sheet,.resume-metrics) { padding:.6em 0 0 }
+  :root[lang="en"] .home-page .resume-sheet .timeline-row { grid-template-columns:minmax(8em,.6fr) minmax(0,1.4fr);gap:1rem }
+  .home-page .resume-sheet .timeline-row { padding-block:.62rem }
+}
+@media(max-width:760px) {
+  :root.folio-surface { --head:65px;--edge:clamp(12px,3.5vw,23px) }
+  .desk-links .nav-zh { font-size:clamp(14px,2.85vw,19px) }
+  .desk-links .nav-en { font-size:clamp(15px,2.9vw,21px) }
+  .home-page .mast-center .brand-word { display:none }
+  .home-page .mast-center { gap:clamp(7px,2.3vw,17px) }
+  .masthead .folio-link:not(.brand) { align-items:start }
+  .masthead .mast-index { align-items:end!important }
+  .masthead .brand { min-width:22px }
+  .masthead .brand img { width:22px }
+  .masthead { gap:4px }
+  .home-page .atlas-grid { grid-template-columns:repeat(auto-fill,minmax(min(100%,calc(41vw * var(--layout-cards))),1fr)) }
+  .home-page .atlas-tile h4 { font-size:1rem }
+  .home-page .atlas-lead .atlas-image { aspect-ratio:calc(1.44 / var(--layout-feature)) }
+  .home-page .screening-frame { width:calc(65% + 35% * var(--layout-screen)) }
+  .home-page .screening-image { aspect-ratio:1.82 }
+  .home-page .atlas-intro h2 { font-size:calc(clamp(2rem,7.5vw,3rem) * var(--layout-display)) }
+}
+@media(max-width:580px) {
+  .home-page .cover-poster { --seal-w:min(97vw,68svh) }
+  .home-page .poster-type { font-size:calc(clamp(3.9rem,19.25vw,7rem) * var(--layout-display)) }
+}
+@media(min-width:581px) and (max-aspect-ratio:1/1) {
+  .home-page .cover-poster { --seal-w:min(79vw,69svh) }
+}
+@media(max-height:490px) and (min-aspect-ratio:3/2) {
+  .home-page .cover-poster { --seal-w:76svh }
+  .home-page .poster-type { font-size:calc(min(10vw,20svh) * var(--layout-display)) }
+}
+@media(min-width:821px) {
+  .work-page .project { max-width:none }
+  .work-page .project-body { max-width:80rem;margin-inline:auto }
+}

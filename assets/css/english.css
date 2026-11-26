@@ -1,0 +1,93 @@
+@font-face {
+  font-family:"Inter Portfolio";
+  src:url(../fonts/inter-portfolio.woff2) format("woff2");
+  font-weight:100 900;
+  font-display:swap;
+}
+@font-face {
+  font-family:"Source Serif Portfolio";
+  src:url(../fonts/source-serif-portfolio.woff2) format("woff2");
+  font-weight:200 900;
+  font-display:swap;
+}
+:root[lang="en"] {
+  --type:"ABC Diatype","Diatype","Inter Portfolio",Arial,sans-serif;
+  --sans:"ABC Marist","Marist","Source Serif Portfolio",Georgia,serif;
+}
+:root[lang="en"] :is(h1,h2,h3,h4,.desk-links,.atlas-browse,.atlas-filters) {
+  font-family:var(--type);
+}
+:root[lang="en"] .resume-first {
+  --resume-pad:14px;
+  width:min(calc(100% - var(--edge)*2),590px);
+  padding:0 var(--resume-pad) var(--resume-pad);
+  background:var(--resume-paper);
+  font:450 1.035rem/1.2 var(--sans);
+  color:#d0d0d0;
+}
+:root[lang="en"] .resume-top { margin:0 }
+:root[lang="en"] .resume-top #resume-label,
+:root[lang="en"] .resume-top .quiet-link { font:450 1em/1.2 var(--sans) }
+:root[lang="en"] #resume-name {
+  margin-block:8px clamp(22px,3.5vw,46px);
+  font:400 clamp(2.1rem,8.5vw,3.6rem)/1.1 var(--type);
+  letter-spacing:normal;
+  color:inherit;
+  overflow-wrap:anywhere;
+}
+:root[lang="en"] .resume-scene {
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  grid-template-areas:"summary experience";
+  grid-template-rows:auto;
+  gap:14px;
+}
+:root[lang="en"] .resume-aside { grid-area:summary;display:grid;align-content:start;gap:14px;min-width:0 }
+:root[lang="en"] :is(.resume-profile,.resume-sheet,.resume-metrics,.resume-tools) {
+  border:0;
+  border-top:1px solid #bcbcbc80;
+  box-shadow:none;
+  background:none;
+  padding:8px 0 2px;
+  margin:0;
+}
+:root[lang="en"] :is(.resume-profile,.resume-sheet,.resume-metrics)::before { content:none }
+:root[lang="en"] .resume-profile { --depth:.36;gap:12px }
+:root[lang="en"] .resume-sheet { --depth:-.25 }
+:root[lang="en"] .resume-metrics { --depth:.22;gap:10px 14px }
+:root[lang="en"] :is(.resume-profile,.resume-metrics) { grid-area:auto }
+:root[lang="en"] .resume-profile-copy p,
+:root[lang="en"] .resume-education,
+:root[lang="en"] .resume-education>span,
+:root[lang="en"] .resume-sheet .timeline-row :is(strong,p),
+:root[lang="en"] .resume-details :is(li,p),
+:root[lang="en"] .resume-sheet h3,
+:root[lang="en"] .resume-details summary { font:450 1em/1.2 var(--sans) }
+:root[lang="en"] .resume-education { gap:2px;padding-top:8px }
+:root[lang="en"] .resume-sheet h3 { padding:0 0 5px;border:0;color:var(--paper);font-weight:550 }
+:root[lang="en"] .resume-sheet .timeline-row { grid-template-columns:minmax(0,1fr);gap:4px;padding-block:10px }
+:root[lang="en"] .resume-sheet .timeline-row time { font:450 .83em/1.2 var(--sans);padding:0 }
+:root[lang="en"] .resume-sheet .timeline-row strong { font-weight:550 }
+:root[lang="en"] .resume-sheet .timeline-row p { margin-top:3px }
+:root[lang="en"] .resume-details { display:block;margin-top:7px }
+:root[lang="en"] .resume-tools { margin-top:0;padding-block-start:0 }
+:root[lang="en"] .resume-details .details:first-child { border-top:0 }
+:root[lang="en"] .resume-details summary { min-height:32px }
+:root[lang="en"] .resume-details li+li { margin-top:5px }
+:root[lang="en"] .resume-details details>p { margin-top:7px }
+:root[lang="en"] .resume-metrics>div { padding-block-start:4px;border-top:0 }
+:root[lang="en"] .resume-metrics strong { letter-spacing:-.02em;font-size:1.13rem }
+:root[lang="en"] .resume-metrics span { font-size:.85em }
+:root[lang="en"] .resume-work-link { font:450 1em/1.2 var(--sans) }
+:root[lang="en"] .portfolio-about { max-width:860px }
+:root[lang="en"] .atlas-bio { font-size:clamp(1rem,1.53vw,1.21rem);line-height:1.45 }
+:root[lang="en"] .atlas-caption p { font-size:clamp(.91rem,1.2vw,1.01rem);line-height:1.36 }
+.source-language {
+  margin-top:clamp(25px,5vw,65px);
+  border-top:1px solid var(--line);
+  padding-top:12px;
+  color:var(--muted);
+  font:400 .9rem/1.5 var(--type);
+}
+@media(max-width:540px) {
+  :root[lang="en"] .resume-scene { grid-template-columns:1fr;grid-template-areas:"summary" "experience";gap:16px }
+}
